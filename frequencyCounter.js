@@ -14,3 +14,24 @@ function validAnagram(str1, str2){
   }
   return true;
 }
+
+// now in just two loops:
+
+const valid = (str1, str2) => {
+  const counter = {}
+  for (let k of str1) {
+    counter[k] = (counter[k] || 0) + 1;
+  }
+  for (let j of str2) {
+    if (!counter[j]) {
+      return false
+    }
+    counter[j] -= 1;
+  }
+  return true
+}
+
+const test1 = validAnagram('anagram', 'rangama')
+const test2 = valid('anagram', 'rangama')
+
+console.log('test1, test2', test1, test2);
